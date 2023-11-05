@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            text-align: center;
+        }
+
+        .chart-container {
+            margin-top: 20px;
+        }
+    </style>
+    <title>Monitoring System</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Website Monitoring System</h1>
+        <div class="chart-container">
+            <canvas id="lineChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="barChart"></canvas>
+        </div>
+        <div class="chart-container">
+            <canvas id="pieChart"></canvas>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var lineChartData = {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [{
+                    label: "Website Traffic",
+                    borderColor: "rgba(75, 192, 192, 1)",
+                    data: [65, 59, 80, 81, 56],
+                    fill: false
+                }]
+            };
+
+            var barChartData = {
+                labels: ["Chrome", "Firefox", "Safari", "Edge", "Other"],
+                datasets: [{
+                    label: "Browser Usage",
+                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#9C27B0"],
+                    data: [30, 25, 15, 10, 20]
+                }]
+            };
+
+            var pieChartData = {
+                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                datasets: [{
+                    data: [12, 19, 3, 5, 2, 3],
+                    backgroundColor: ["#FF6384", "#36A2EB", "#FFCE56", "#4CAF50", "#9C27B0", "#FF9800"]
+                }]
+            };
+
+            var lineChartCtx = document.getElementById("lineChart").getContext("2d");
+            new Chart(lineChartCtx, {
+                type: "line",
+                data: lineChartData
+            });
+
+            var barChartCtx = document.getElementById("barChart").getContext("2d");
+            new Chart(barChartCtx, {
+                type: "bar",
+                data: barChartData
+            });
+
+            var pieChartCtx = document.getElementById("pieChart").getContext("2d");
+            new Chart(pieChartCtx, {
+                type: "pie",
+                data: pieChartData
+            });
+        });
+    </script>
+</body>
+
+</html>
