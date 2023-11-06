@@ -74,7 +74,7 @@ form.addEventListener('submit', function (e) {
   checkEmail(email);
   checkPasswordsMatch(password, password2);
 });
-
+a
 
 function setMode(mode) {
   document.body.classList.remove('light-mode', 'dark-mode');
@@ -86,7 +86,4 @@ function setMode(mode) {
    localStorage.setItem("mode", mode);
   }
  
-  const savedMode = localStorage.getItem("mode");
-  if (savedMode) {
-            setMode(savedMode);
-    }
+  
